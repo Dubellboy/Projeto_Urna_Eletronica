@@ -103,6 +103,10 @@ function confirma() {
 
     if(votoBranco === true){
         votoConfirmado = true;
+        votos.push({
+            etapa: etapas[etapaAtual].titulo,
+            voto: 'branco'
+        });     
     }else if(numero.lenght === etapa.numeros) {
         votoConfirmado = true;
         votos.push({
@@ -110,12 +114,14 @@ function confirma() {
             voto: numero
         });
     }
+    
     if(votoConfirmado){
         etapaAtual++;
         if(etapas[etapaAtual] !== undefined){
             comecarEtapa();
         }else {
             document.querySelector('.tela').innerHTML = '<div class="aviso--gigante pisca">FIM</div>';
+            console.log(votos);
         }
     }
 };
